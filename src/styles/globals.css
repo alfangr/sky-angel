@@ -1,3 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Odibee+Sans&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: "Space Mission";
+  src: url('../assets/fonts/space-mission.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@layer base {
+  html, body, body #__next {
+    height: 100%;
+  }
+  
+  main {
+    @apply flex items-center justify-center;
+    @apply w-full h-full;
+  }
+
+  .game-title {
+    @apply text-white drop-shadow-lg text-9xl mt-32;
+  }
+  
+  .aircraft-container {
+    @apply relative overflow-hidden z-0;
+    width: 1024px;
+    height: 768px;
+  }
+
+  .aircraft-start, .aircraft-playground {
+    @apply relative w-full h-full;
+  }
+
+  .aircraft-playground {
+    background: url("https://img.freepik.com/free-vector/blank-blue-halftone-background_53876-114243.jpg?size=626&ext=jpg&ga=GA1.1.1771748598.1680138461&semt=ais");
+    background-size: cover;
+  }
+}
+
+@layer components {
+  #aircraft {
+    @apply absolute z-40 transition-all duration-100;
+    width: 226px;
+    height: 75px;
+    background-size: 100%;
+  }
+
+  .cloud {
+    @apply absolute z-20 top-5;
+  }
+
+  .bird, .parachute, .star {
+    @apply absolute z-30 top-5;
+  }
+
+  .bird, .cloud, .parachute, .star {
+    background-size: 100%;
+  }
+
+  .bird {
+    width: 127px;
+    height: 50px;
+  }
+
+  .cloud {
+    width: 232px;
+    height: 100px;
+  }
+
+  .parachute {
+    width: 50px;
+    height: 50px;
+  }
+
+  .star {
+    width: 30px;
+    height: 30px;
+  }
+
+  .overlay {
+    @apply flex justify-center items-center fixed top-0 left-0 w-full h-full z-50;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .message {
+    @apply bg-white;
+    padding: 1rem;
+    border-radius: 0.5rem;
+  }
+}
+
+@layer utilities {
+  .font-space {
+    font-family: 'Space Mission' , sans-serif;
+  }
+}
